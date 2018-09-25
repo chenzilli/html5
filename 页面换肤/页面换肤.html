@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>页面换肤</title>
+		<style>
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			.b1{
+				margin:0 auto;
+				width:500px;
+				height:200px
+			}
+			fieldset{
+				margin:0 auto;
+				width:450px;
+				height:200px
+			}
+			legend{
+				margin-left:25px;
+				color:red;
+			}
+			.bbb1{
+				width:430px;
+				height:50px;
+				border:solid 1px black;
+				margin:30px auto;
+			}
+			.bbb1 div{
+				width:25px;
+				height:25px;
+				border:solid 1px black;
+				float:left;
+				margin-left:30px;
+				margin-top:12px;
+			}
+			.bbb2{
+				width:400px;
+				margin: auto;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var box1=document.getElementsByClassName("bbb1")[0].children;
+				var box2=document.getElementsByClassName("bbb2")[0];
+				if(localStorage.getItem("blocor")){
+					box2.style.backgroundColor="#00BFFF";
+				}
+				else{
+					box2.style.backgroundColor=localStorage["bcolor"];
+				}
+				for(var i=0;i<box1.length;i++){
+					(function(i){
+					box1[i].onclick=function(){
+						if(window.localStorage){
+						localStorage["bcolor"]=box1[i].style.backgroundColor;
+						box2.style.backgroundColor=localStorage["bcolor"];
+						console.log(localStorage["bcolor"]);
+						box1[i].style.marginTop="5px";
+						}
+					}
+				})(i);
+				}
+				for(var i=0;i<box1.length;i++){
+					(function(i){
+					box1[i].onmouseover=function(){
+						if(window.localStorage){
+						box1[i].style.marginTop="5px";
+						}
+					}
+					box1[i].onmouseout=function(){
+						if(window.localStorage){
+						box1[i].style.marginTop="12px";
+						}
+					}
+				})(i);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="b1">
+			<fieldset>
+				<legend>页面换肤</legend>
+				<div class="bbb1">
+					<div style="background-color: #A9A9A9;"></div>
+					<div style="background-color: blueviolet;"></div>
+					<div style="background-color: red;"></div>
+					<div style="background-color: #00BFFF;"></div>
+					<div style="background-color: orangered;"></div>
+					<div style="background-color: cyan;"></div>
+				</div>
+				<div class="bbb2">
+					<p>2018-9-23 hbuilder页面换肤作业</p>
+				</div>
+			</fieldset>
+		</div>
+	</body>
+</html>
