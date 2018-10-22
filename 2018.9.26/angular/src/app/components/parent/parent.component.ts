@@ -34,7 +34,8 @@ export class ParentComponent implements OnInit {
     this.local.set("list2",this.data2);
   }
   constructor(private local:MyserviceService) {
-      this.local.set("list1"," ")
+    
+      this.local.set("list1"," ");
       if(this.local.get("list1")==" "){
         this.local.set("list1",this.data1);
         this.local.set("list2",this.data2);
